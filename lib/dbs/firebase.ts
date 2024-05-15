@@ -2,14 +2,25 @@ import { initializeApp } from 'firebase/app';
 import { deleteDoc, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { SessionProps, UserData } from '../../types';
 
-// Firebase config and initialization
-// Prod applications might use config file
+//Firebase config and initialization
+//Prod applications might use config file
 const { FIRE_API_KEY, FIRE_DOMAIN, FIRE_PROJECT_ID } = process.env;
 const firebaseConfig = {
     apiKey: FIRE_API_KEY,
     authDomain: FIRE_DOMAIN,
     projectId: FIRE_PROJECT_ID,
 };
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDOf86a3dj_SSvHrGKZrvghD4Zue0PxK8A",
+//     authDomain: "tig-bc-app.firebaseapp.com",
+//     projectId: "tig-bc-app",
+//     storageBucket: "tig-bc-app.appspot.com",
+//     messagingSenderId: "914176756861",
+//     appId: "1:914176756861:web:449dd3813f73ebba56f514",
+//     measurementId: "G-V7JJPEQ794"
+//   };
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 

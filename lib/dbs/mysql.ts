@@ -23,6 +23,8 @@ export async function setUser({ user }: SessionProps) {
     const { email, id, username } = user;
     const userData = { email, userId: id, username };
 
+    // username = username ? username : 'mockusername';
+
     await query('REPLACE INTO users SET ?', userData);
 }
 

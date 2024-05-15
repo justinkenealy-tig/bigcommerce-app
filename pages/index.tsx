@@ -1,37 +1,34 @@
-import { Box, Flex, H1, H4, Panel } from '@bigcommerce/big-design';
-import styled from 'styled-components';
-import ErrorMessage from '../components/error';
-import Loading from '../components/loading';
-import { useProducts } from '../lib/hooks';
+/* eslint-disable no-console */
+import {  Panel } from "@bigcommerce/big-design";
 
 const Index = () => {
-    const { error, isLoading, summary } = useProducts();
 
-    if (isLoading) return <Loading />;
-    if (error) return <ErrorMessage error={error} />;
-
-    return (
-        <Panel header="Homepage" id="home">
-            <Flex>
-                <StyledBox border="box" borderRadius="normal" marginRight="xLarge" padding="medium">
-                    <H4>Inventory count</H4>
-                    <H1 marginBottom="none">{summary.inventory_count}</H1>
-                </StyledBox>
-                <StyledBox border="box" borderRadius="normal" marginRight="xLarge" padding="medium">
-                    <H4>Variant count</H4>
-                    <H1 marginBottom="none">{summary.variant_count}</H1>
-                </StyledBox>
-                <StyledBox border="box" borderRadius="normal" padding="medium">
-                    <H4>Primary category</H4>
-                    <H1 marginBottom="none">{summary.primary_category_name}</H1>
-                </StyledBox>
-            </Flex>
-        </Panel>
-    );
+  return (
+    <Panel header="Installation Successful" id="home">
+      <h3>Openfreight API Configuration</h3>
+      <p>To configure your connection to the Openfreight API:</p>
+      <ol>
+        <li style={{ marginBottom: "10px" }}>
+          Heading to the settings page of your BigCommerce Store
+        </li>
+        <li style={{ marginBottom: "10px" }}>
+          Under <em>Setup</em>, click <em>Shipping</em>
+        </li>
+        <li style={{ marginBottom: "10px" }}>
+          Under <em>Checkout shipping options</em>, click <em>Configure</em> or <em>Edit</em> next to
+          the relevant shipping zone
+        </li>
+        <li style={{ marginBottom: "10px" }}>
+          Scroll down and find <em>Openfreight Quoting</em> under the{" "}
+          <em>Real-time shipping quotes</em>
+        </li>
+        <li style={{ marginBottom: "10px" }}>
+          Click <em>Connect</em> or <em>Edit</em>, then <em>Connection</em>, then enter your
+          Openfreight API credentials and click <em>Submit</em>
+        </li>
+      </ol>
+    </Panel>
+  );
 };
-
-const StyledBox = styled(Box)`
-    min-width: 10rem;
-`;
 
 export default Index;
